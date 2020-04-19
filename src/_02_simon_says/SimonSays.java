@@ -27,6 +27,7 @@ public class SimonSays extends KeyAdapter {
 	private int tries = 0;
 	private boolean simonSays = false;
 	Date timeAtStart;
+	int points = 0;
 
 	// Complete steps 1 - 7 before you test
 	// 1. Declare a JFrame variable
@@ -51,21 +52,30 @@ public class SimonSays extends KeyAdapter {
 
 	public void keyPressed(KeyEvent e) {
 		// 15. Make a points variable to track the score.
-		int points = 0;
+		
 
 		// 16. If the keyCode matches the imageIndex and "Simon says"
-		if(imageIndex == e.getKeyCode()) {
+		if(imageIndex == e.getKeyCode() && simonSays == true) {
 			points += 1;
 			speak("You are correct");
 		}
+		else if(imageIndex == e.getKeyCode() && simonSays == false) {
+			speak("You are incorrect");
+		}
 		
-		else if(imageIndex != e.getKeyCode() && e.equals("Simon didn't say")){
+		
+		else if(imageIndex != e.getKeyCode() && simonSays == false){
 			points +=1;
 			speak("You are correct");
 		}
+		else if(imageIndex != e.getKeyCode() && simonSays == true) {
+			speak("You are incorrect");
+		}
 		tries += 1;
-		if(tries>3) {
+		if(tries>2) {
 			speak("Your score was " + points);
+			System.exit(0);
+			frame.dispose();
 		}
 		
 		
@@ -88,10 +98,10 @@ public class SimonSays extends KeyAdapter {
 		// 26. Tell the user their score
 
 		// 27. Exit the program
-		System.exit(0);
+		
 
 		// 23. Dispose of the frame
-		frame.dispose();
+		
 
 		// 24. Call the showImage method to show a new image
 		showImage();
