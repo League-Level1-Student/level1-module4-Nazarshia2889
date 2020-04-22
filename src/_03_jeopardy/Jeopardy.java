@@ -35,6 +35,7 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
+	private JButton fifthButton, sixthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -76,9 +77,19 @@ public class Jeopardy implements ActionListener {
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
 		secondButton = createButton("200");
+		
+		thirdButton = createButton("400");
+		fourthButton = createButton("600");
+		fifthButton = createButton("800");
+		sixthButton = createButton("1000");
 
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+		
+		quizPanel.add(thirdButton);
+		quizPanel.add(fourthButton);
+		quizPanel.add(fifthButton);
+		quizPanel.add(sixthButton);
 
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
@@ -87,6 +98,13 @@ public class Jeopardy implements ActionListener {
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
+		
+		
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
+		sixthButton.addActionListener(this);
+		
 		
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
@@ -137,6 +155,20 @@ public class Jeopardy implements ActionListener {
 		if(buttonPressed == secondButton) {
 			askQuestion("Who is the richest man in the world currently?", "Jeff Bezos",Integer.parseInt(secondButton.getText()));
 		}
+		if(buttonPressed == thirdButton) {
+			askQuestion("Who is the richest man in the world currently?", "Bill Gates",Integer.parseInt(thirdButton.getText()));
+		}
+		if(buttonPressed == fourthButton) {
+			askQuestion("Who is the richest man in the world currently?", "me",Integer.parseInt(fourthButton.getText()));
+		}
+		if(buttonPressed == fifthButton) {
+			askQuestion("Who is the richest man in the world currently?", "Duckies",Integer.parseInt(fifthButton.getText()));
+		}	
+		if(buttonPressed == sixthButton) {
+			askQuestion("Who is the richest man in the world currently?", "Steve from Minecraft",Integer.parseInt(sixthButton.getText()));
+		}
+
+		
 
 			// Call the askQuestion() method with a harder question
 
@@ -154,7 +186,7 @@ public class Jeopardy implements ActionListener {
 		String answer = JOptionPane.showInputDialog(null, question);
 		
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
-		
+		sound.stop();
 		
 		// If the answer is correct
 		if(answer.equalsIgnoreCase(correctAnswer)) {
@@ -169,7 +201,7 @@ public class Jeopardy implements ActionListener {
 		// Otherwise
 		else {
 			score -= prizeMoney;
-			JOptionPane.showMessageDialog(null, "You are incorrect. The correct answer was " + correctAnswer);
+			JOptionPane.showMessageDialog(null, "You are incorrect. The correct answer was " + correctAnswer + ".");
 		}
 
 			// Decrement the score by the prizeMoney
