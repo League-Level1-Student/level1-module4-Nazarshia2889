@@ -28,6 +28,7 @@ public class TypingTutor implements KeyListener {
 		f.setVisible(true);
 		f.setTitle("Type");
 		f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
+		f.setSize(250, 250);
 		f.addKeyListener(this);
 		f.add(j);
 		currentLetter = generateRandomLetter();
@@ -55,13 +56,13 @@ public class TypingTutor implements KeyListener {
 		j.setText("");
 		if(e.getKeyChar() == currentLetter) {
 			System.out.println("Correct");
-			j.setBackground(Color.GREEN);
+			f.setBackground(Color.GREEN);
 			
 			
 		}
 		else {
 			System.out.println("Incorrect");
-			j.setBackground(Color.RED);
+			f.setBackground(Color.RED);
 			
 		}
 		f.pack();
