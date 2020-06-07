@@ -34,6 +34,8 @@ public class SlotMachine implements ActionListener {
 	Random rand = new Random();
 	
 	
+	
+	
 	void run() {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -41,6 +43,13 @@ public class SlotMachine implements ActionListener {
 		frame.add(panel);
 		
 		panel.add(spin);
+		
+		String code = "8675309";
+		System.out.println(code.length());
+		
+		String s1 = "SUBWAY";
+		String s2 = s1.substring(0, 3);
+		System.out.println(s2);
 		
 		try {
 			cherryOne = createLabelImage("cherry.png");
@@ -167,12 +176,14 @@ public class SlotMachine implements ActionListener {
 			panel.add(orangeThree);
 		}
 		
+		
+		
+		
 		frame.pack();
 		
 		if(x == y && y == z) {
 			JOptionPane.showMessageDialog(null, "YOU WON!");
 		}
-		
 		
 		
 		
