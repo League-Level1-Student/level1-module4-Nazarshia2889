@@ -36,47 +36,74 @@ public class AdvancedBinaryConverter implements ActionListener {
 		convertButton = new JButton();
 
 		// 1. Make the frame show up
+		frame.setVisible(true);
 
 		// 2. Give your frame a title
-		
+		frame.setTitle("Binary Converter");
 		// 3. Add your panel to the frame
-		
+		frame.add(panel);
+		int x = 1;
+		x *= 4;
+		System.out.println(x);
+			
 		// 4. Call the addObjectToPanel() method to add inputTextField to row 0, column 0
-		//    of the panel and span 2 columns, addObjectToPanel(inputTextField, 0, 0, 2);
+		//    of the panel and span 2 columns, 
+		addObjectToPanel(inputTextField, 0, 0, 2);
+		
 		
 		// 5. Set the convertButton text to "convert"
+		convertButton.setText("convert");
 		
 		// 6. Add an action listener to convertButton
-		
+		convertButton.addActionListener(this);
 		// 7. Call the addObjectToPanel() method to add convertButton to row 1, column 0
 		//    of the panel with a cellWidth of 2
+		addObjectToPanel(convertButton, 1, 0, 2);
 
 		// 8. Create a new JLabel with the text "ASCII:"
+		JLabel a = new JLabel("ASCII");
 
 		// 9. Call the addObjectToPanel() method to add the new label to row 2, column 0
 		//    of the panel with a cellWidth of 1
+		addObjectToPanel(a, 2, 0, 1);
 		
 		// 10. Add asciiResult to the panel next to JLabel from step 8.
+		addObjectToPanel(asciiResult, 2, 1, 1);
 		
 		// 11. Create a new JLabel with the text "Decimal:"
+		JLabel d = new JLabel("Decimal");
 		
 		// 12. Add the label from step 11. to row 3, column 0 of the panel
+		addObjectToPanel(d, 3, 0, 1);
+		
 		
 		// 13. Add the decimalResult JTextField to the panel next to label from step 11.
+		addObjectToPanel(decimalResult, 3, 1, 1);
 		
 		// 14. Create a new JLabel with the text "Hexidecimal:"
+		JLabel h = new JLabel("Hexidecimal");
 		
 		// 15. Add the label from step 14. to row 4, column 0 of the panel
+		addObjectToPanel(h, 4, 0, 1);
 		
 		// 16. Add the hexResult JTextField to the panel next to the label from step 14.
+		addObjectToPanel(hexResult, 4, 1, 1);
 		
 		// 17. Pack the frame
+		frame.pack();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
 		// 18. If convertButton was pressed...
+		String field = inputTextField.getText();	
+		String ascii = binaryToAscii(field);
+		asciiResult.setText(ascii);
+		String btoint = binaryToInt(field);
+		decimalResult.setText(btoint);
+		String btohex = binaryToHex(field);
+		hexResult.setText(btohex);
 		
 			// 19. Get the text from inputTextField and save it to a new String variable
 			

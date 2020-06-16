@@ -44,12 +44,7 @@ public class SlotMachine implements ActionListener {
 		
 		panel.add(spin);
 		
-		String code = "8675309";
-		System.out.println(code.length());
 		
-		String s1 = "SUBWAY";
-		String s2 = s1.substring(0, 3);
-		System.out.println(s2);
 		
 		try {
 			cherryOne = createLabelImage("cherry.png");
